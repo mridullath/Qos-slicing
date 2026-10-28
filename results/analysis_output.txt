@@ -1,0 +1,212 @@
+== MAIN mean over seeds, per dataset (viol_urllc / viol_wavg / util / p99)
+viol_urllc
+ds                      D1     D2     D3     D4     D5    ALL
+method                                                       
+B1 Static hard       0.060  0.060  0.062  0.061  0.061  0.061
+B2 Threshold soft    0.159  0.146  0.152  0.113  0.155  0.145
+B3 Backlog-weighted  0.153  0.272  0.127  0.265  0.187  0.201
+B4 Q-learning        0.011  0.012  0.011  0.012  0.011  0.011
+Proposed             0.007  0.007  0.007  0.005  0.007  0.007
+viol_wavg
+ds                      D1     D2     D3     D4     D5    ALL
+method                                                       
+B1 Static hard       0.138  0.151  0.117  0.146  0.159  0.142
+B2 Threshold soft    0.133  0.142  0.113  0.135  0.143  0.133
+B3 Backlog-weighted  0.101  0.183  0.082  0.207  0.133  0.141
+B4 Q-learning        0.190  0.172  0.198  0.130  0.183  0.175
+Proposed             0.037  0.067  0.029  0.076  0.050  0.052
+util
+ds                      D1     D2     D3     D4     D5    ALL
+method                                                       
+B1 Static hard       0.744  0.728  0.751  0.595  0.730  0.710
+B2 Threshold soft    0.761  0.759  0.771  0.626  0.755  0.734
+B3 Backlog-weighted  0.771  0.766  0.779  0.636  0.764  0.743
+B4 Q-learning        0.684  0.677  0.685  0.571  0.680  0.660
+Proposed             0.772  0.767  0.780  0.633  0.763  0.743
+p99_urllc
+ds                       D1      D2      D3       D4      D5     ALL
+method                                                              
+B1 Static hard       33.185  33.897  34.243   33.576  32.970  33.574
+B2 Threshold soft    61.924  63.043  53.334   51.822  62.378  58.500
+B3 Backlog-weighted  51.006  77.145  37.994  106.148  80.361  70.531
+B4 Q-learning        13.830  14.215  13.312   13.680  13.611  13.729
+Proposed              9.118   9.204   9.186    8.350   9.042   8.980
+== sd of viol_urllc/wavg overall
+                    viol_urllc        viol_wavg          util        p99_urllc         goodput          jain         dec_us       
+                          mean    std      mean    std   mean    std      mean     std    mean    std   mean    std    mean    std
+method                                                                                                                            
+B1 Static hard           0.061  0.019     0.142  0.043  0.710  0.079    33.574  14.375  60.772  7.136  0.987  0.036   0.938  0.163
+B2 Threshold soft        0.145  0.037     0.133  0.043  0.734  0.080    58.500  24.840  61.466  6.909  0.988  0.033  12.491  2.097
+B3 Backlog-weighted      0.201  0.099     0.141  0.081  0.743  0.080    70.531  43.104  61.941  6.790  0.990  0.030   5.330  0.806
+B4 Q-learning            0.011  0.009     0.175  0.033  0.660  0.059    13.729   8.967  56.211  5.869  0.979  0.038   5.825  1.037
+Proposed                 0.007  0.003     0.052  0.033  0.743  0.080     8.980   1.365  61.860  6.937  0.989  0.033  47.465  7.275
+== Wilcoxon (pooled ds x seed, n=150)
+        metric                   vs    prop     base  cliffs_delta             p        p_holm
+0   viol_urllc       B1 Static hard  0.0067   0.0608        -1.000  2.299433e-26  9.197732e-26
+1   viol_urllc    B2 Threshold soft  0.0067   0.1451        -1.000  2.299606e-26  9.197732e-26
+2   viol_urllc  B3 Backlog-weighted  0.0067   0.2008        -1.000  2.299606e-26  9.197732e-26
+3   viol_urllc        B4 Q-learning  0.0067   0.0113        -0.279  3.852376e-11  3.852376e-11
+4    viol_wavg       B1 Static hard  0.0518   0.1423        -0.924  2.299606e-26  9.198423e-26
+5    viol_wavg    B2 Threshold soft  0.0518   0.1331        -0.933  2.299606e-26  9.198423e-26
+6    viol_wavg  B3 Backlog-weighted  0.0518   0.1413        -0.797  2.299606e-26  9.198423e-26
+7    viol_wavg        B4 Q-learning  0.0518   0.1746        -0.958  3.797435e-26  9.198423e-26
+8         util       B1 Static hard  0.7429   0.7096         0.513  2.299606e-26  9.198423e-26
+9         util    B2 Threshold soft  0.7429   0.7345         0.160  6.776326e-26  1.355265e-25
+10        util  B3 Backlog-weighted  0.7429   0.7433         0.009  9.111118e-01  9.111118e-01
+11        util        B4 Q-learning  0.7429   0.6595         0.764  2.299606e-26  9.198423e-26
+12   p99_urllc       B1 Static hard  8.9799  33.5744        -1.000  2.299606e-26  9.198423e-26
+13   p99_urllc    B2 Threshold soft  8.9799  58.5001        -1.000  2.299606e-26  9.198423e-26
+14   p99_urllc  B3 Backlog-weighted  8.9799  70.5309        -1.000  2.299606e-26  9.198423e-26
+15   p99_urllc        B4 Q-learning  8.9799  13.7295        -0.134  2.946702e-07  2.946702e-07
+Friedman viol_wavg FriedmanchisquareResult(statistic=np.float64(342.6773333333331), pvalue=np.float64(6.682596803429035e-73))
+Friedman viol_urllc FriedmanchisquareResult(statistic=np.float64(538.4277610944275), pvalue=np.float64(3.262908392816127e-115))
+diff viol_wavg Prop- B1 Static hard -0.0905 [-0.0965 -0.085 ]
+diff viol_wavg Prop- B2 Threshold soft -0.0813 [-0.085  -0.0774]
+diff viol_wavg Prop- B3 Backlog-weighted -0.0895 [-0.098  -0.0816]
+diff viol_wavg Prop- B4 Q-learning -0.1228 [-0.1304 -0.1147]
+== per dataset proposed vs best baseline (viol_wavg)
+method  B1 Static hard  B2 Threshold soft  B3 Backlog-weighted  B4 Q-learning  Proposed
+ds                                                                                     
+D1               0.138              0.133                0.101          0.190     0.037
+D2               0.151              0.142                0.183          0.172     0.067
+D3               0.117              0.113                0.082          0.198     0.029
+D4               0.146              0.135                0.207          0.130     0.076
+D5               0.159              0.143                0.133          0.183     0.050
+== COND
+cond                degraded         noisy       
+ds                        D1     D4     D1     D4
+method                                           
+B1 Static hard         0.395  0.364  0.138  0.146
+B2 Threshold soft      0.335  0.277  0.133  0.135
+B3 Backlog-weighted    0.424  0.355  0.105  0.208
+B4 Q-learning          0.269  0.210  0.194  0.133
+Proposed               0.225  0.169  0.051  0.087
+cond                degraded         noisy       
+ds                        D1     D4     D1     D4
+method                                           
+B1 Static hard         0.185  0.183  0.060  0.061
+B2 Threshold soft      0.346  0.263  0.159  0.113
+B3 Backlog-weighted    0.564  0.437  0.160  0.267
+B4 Q-learning          0.097  0.095  0.011  0.012
+Proposed               0.049  0.041  0.012  0.009
+cond                degraded         noisy       
+ds                        D1     D4     D1     D4
+method                                           
+B1 Static hard         0.819  0.653  0.744  0.595
+B2 Threshold soft      0.876  0.725  0.761  0.626
+B3 Backlog-weighted    0.903  0.748  0.771  0.636
+B4 Q-learning          0.753  0.658  0.678  0.569
+Proposed               0.903  0.753  0.770  0.631
+== ABLATION
+viol_urllc
+cond                  degraded               nominal                 MEAN
+ds                          D1     D4     D5      D1     D4     D5       
+method                                                                   
+Full                     0.049  0.041  0.048   0.007  0.005  0.007  0.026
+hybrid only              0.194  0.135  0.191   0.029  0.022  0.028  0.100
+none (soft, reactive)    0.384  0.313  0.397   0.120  0.176  0.154  0.257
+w/o cross-layer          0.195  0.139  0.192   0.029  0.022  0.029  0.101
+w/o forecasting          0.059  0.047  0.057   0.008  0.006  0.007  0.031
+w/o hybrid isolation     0.512  0.365  0.502   0.086  0.172  0.125  0.294
+viol_wavg
+cond                  degraded               nominal                 MEAN
+ds                          D1     D4     D5      D1     D4     D5       
+method                                                                   
+Full                     0.225  0.169  0.212   0.037  0.076  0.050  0.128
+hybrid only              0.282  0.229  0.271   0.044  0.101  0.058  0.164
+none (soft, reactive)    0.355  0.325  0.368   0.086  0.186  0.124  0.241
+w/o cross-layer          0.280  0.216  0.269   0.044  0.084  0.057  0.158
+w/o forecasting          0.233  0.183  0.219   0.039  0.093  0.052  0.137
+w/o hybrid isolation     0.500  0.369  0.487   0.068  0.170  0.109  0.284
+util
+cond                  degraded               nominal                 MEAN
+ds                          D1     D4     D5      D1     D4     D5       
+method                                                                   
+Full                     0.903  0.753  0.892   0.772  0.633  0.763  0.786
+hybrid only              0.888  0.730  0.876   0.764  0.628  0.757  0.774
+none (soft, reactive)    0.898  0.747  0.889   0.768  0.638  0.763  0.784
+w/o cross-layer          0.889  0.731  0.877   0.764  0.629  0.757  0.774
+w/o forecasting          0.901  0.752  0.891   0.771  0.632  0.763  0.785
+w/o hybrid isolation     0.937  0.777  0.927   0.777  0.644  0.771  0.806
+p99_urllc
+cond                  degraded                  nominal                    MEAN
+ds                          D1       D4      D5      D1      D4      D5        
+method                                                                         
+Full                    22.757   22.364  22.488   9.118   8.350   9.042  15.686
+hybrid only             37.212   34.697  36.945  15.916  13.643  15.391  25.634
+none (soft, reactive)   82.395  123.645  89.358  28.638  59.073  31.299  69.068
+w/o cross-layer         36.617   34.359  36.379  15.917  13.795  15.421  25.415
+w/o forecasting         23.260   22.708  23.175   9.195   8.346   9.119  15.967
+w/o hybrid isolation    68.345   99.311  70.245  22.105  56.152  26.540  57.116
+ablation Full vs w/o cross-layer viol_wavg 0.128 0.1583 p= 4.7260009893423726e-30
+ablation Full vs w/o cross-layer viol_urllc 0.0262 0.1011 p= 2.7347444092138385e-31
+ablation Full vs w/o forecasting viol_wavg 0.128 0.1366 p= 1.5947617726590282e-30
+ablation Full vs w/o forecasting viol_urllc 0.0262 0.0306 p= 2.5387900152542033e-24
+ablation Full vs w/o hybrid isolation viol_wavg 0.128 0.284 p= 2.7348870910495993e-31
+ablation Full vs w/o hybrid isolation viol_urllc 0.0262 0.2936 p= 2.734839529634731e-31
+ablation Full vs hybrid only viol_wavg 0.128 0.164 p= 1.1454341815570784e-30
+ablation Full vs hybrid only viol_urllc 0.0262 0.0997 p= 3.990089174577258e-31
+ablation Full vs none (soft, reactive) viol_wavg 0.128 0.2408 p= 2.7348870910495993e-31
+ablation Full vs none (soft, reactive) viol_urllc 0.0262 0.2571 p= 2.7348870910495993e-31
+== SWEEP viol_wavg
+method  B1 Static hard  B2 Threshold soft  B3 Backlog-weighted  B4 Q-learning  Proposed
+rho                                                                                    
+0.4              0.032              0.030                0.063          0.047     0.022
+0.5              0.047              0.059                0.086          0.085     0.032
+0.6              0.089              0.104                0.127          0.133     0.045
+0.7              0.239              0.171                0.210          0.168     0.078
+0.8              0.375              0.269                0.355          0.183     0.143
+0.9              0.437              0.397                0.547          0.201     0.219
+1.0              0.471              0.526                0.717          0.229     0.253
+SWEEP viol_urllc
+method  B1 Static hard  B2 Threshold soft  B3 Backlog-weighted  B4 Q-learning  Proposed
+rho                                                                                    
+0.4              0.009              0.020                0.084          0.003     0.001
+0.5              0.017              0.050                0.112          0.005     0.002
+0.6              0.039              0.097                0.164          0.009     0.004
+0.7              0.078              0.160                0.275          0.013     0.007
+0.8              0.122              0.246                0.459          0.018     0.011
+0.9              0.159              0.345                0.655          0.030     0.015
+1.0              0.192              0.461                0.787          0.047     0.018
+SWEEP util
+method  B1 Static hard  B2 Threshold soft  B3 Backlog-weighted  B4 Q-learning  Proposed
+rho                                                                                    
+0.4              0.427              0.443                0.448          0.418     0.445
+0.5              0.521              0.541                0.547          0.509     0.543
+0.6              0.610              0.633                0.641          0.585     0.638
+0.7              0.686              0.719                0.730          0.640     0.728
+0.8              0.732              0.795                0.810          0.684     0.807
+0.9              0.761              0.854                0.873          0.725     0.857
+1.0              0.782              0.890                0.909          0.763     0.884
+== SCALE viol_wavg
+method  B1 Static hard  B2 Threshold soft  B3 Backlog-weighted  Proposed
+N                                                                       
+3                0.134              0.135                0.107     0.039
+6                0.206              0.078                0.035     0.036
+12               0.226              0.057                0.012     0.011
+25               0.196              0.055                0.009     0.005
+50               0.213              0.055                0.006     0.002
+SCALE viol_urllc
+method  B1 Static hard  B2 Threshold soft  B3 Backlog-weighted  Proposed
+N                                                                       
+3                0.056              0.153                0.159     0.006
+6                0.058              0.146                0.083     0.005
+12               0.055              0.134                0.030     0.004
+25               0.057              0.121                0.020     0.005
+50               0.062              0.124                0.014     0.006
+SCALE util
+method  B1 Static hard  B2 Threshold soft  B3 Backlog-weighted  Proposed
+N                                                                       
+3                0.740              0.757                0.767     0.767
+6                0.748              0.779                0.790     0.793
+12               0.748              0.787                0.799     0.804
+25               0.748              0.793                0.803     0.808
+50               0.751              0.797                0.807     0.812
+SCALE dec_us
+method  B1 Static hard  B2 Threshold soft  B3 Backlog-weighted  Proposed
+N                                                                       
+3                  1.0               13.4                  6.1      55.4
+6                  0.9               14.1                  4.9      43.0
+12                 0.8               16.3                  4.8      47.6
+25                 0.9               19.6                  5.0      52.8
+50                 0.9               21.0                  5.5      59.8
